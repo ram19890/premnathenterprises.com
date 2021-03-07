@@ -4,5 +4,5 @@ theme:
 nav:
     - Home: index.md
     - About: index.md
-    - Vim: Vim.md
+    - Vim: ./Vim.md
     
