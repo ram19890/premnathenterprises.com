@@ -5,4 +5,4 @@ nav:
     - Home: index.md
     - About: index.md
     - Vim: ./Vim.md
-    - alfa:
+    - alfa: afro.md
