@@ -1,1 +1,8 @@
-
+#site_name: ramkumar
+nav:
+    - Home: index.md
+    - About: index.md
+#- [index.md, Home]
+#- [about.md, About]
+#- [about.md, About]
+#theme: material
