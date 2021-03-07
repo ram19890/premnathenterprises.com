@@ -1,4 +1,4 @@
-#site_name: ramkumar
+site_name: ramkumar
 nav:
     - Home: index.md
     - About: index.md
