@@ -1,18 +1,7 @@
 site_name: ramkumar
+theme:
+    name: material
 nav:
     - Home: index.md
     - About: index.md
-#- [index.md, Home]
-#- [about.md, About]
-#- [about.md, About]
-  - Vim: Vim.md
-  - garry: garry.md
-  - U: U/mitty.md
-  - Flac: alfa/afro.md
-  - Blac: alfa/borg.md
-  - Az: alfa/gat.md
-  - Cx: b/horse.md
-  - Yu: clur/mate.md
-  - Bx: x/fry.md
-  - Gf: zodi/kodiet.md
-theme: material
+    
