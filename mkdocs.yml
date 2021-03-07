@@ -1,0 +1,6 @@
+site_name: jim
+theme:
+  name: material
+    # markdown_extensions:
+    # - def_list
+
