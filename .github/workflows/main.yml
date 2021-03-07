@@ -1,4 +1,3 @@
-site_name: Ram
 name: ci
 on:
   push:
