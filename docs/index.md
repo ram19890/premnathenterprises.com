@@ -94,6 +94,7 @@ sudo rm /var/lib/pacman/db.lck
 makepkg -Acs
 pacman -U anydesk-bin.pkg.tar.xz
 
+## SystemD
 sudo systemctl enable teamviewerd.service
 sudo systemctl start teamviewerd.service
 Then start teamviewer
