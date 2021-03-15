@@ -1,4 +1,4 @@
-# Welcome to MkDocs
+# Arch Linux Installation
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
