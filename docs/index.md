@@ -86,14 +86,16 @@ lxqt
 
 ## To use AUR and Enable Teamviewer on Systemd
 
-1) git clone https://aur.archlinux.org/anydesk-bin.git
-2) cd anydesk-bin
-3) sudo rm /var/lib/pacman/db.lck
-4) makepkg -Acs
-5) sudo pacman -U anydesk-bin.pkg.tar.xz
+git clone https://aur.archlinux.org/anydesk-bin.git
+cd anydesk-bin
 
-1) sudo systemctl enable teamviewerd.service
-2) sudo systemctl start teamviewerd.service
+sudo rm /var/lib/pacman/db.lck
+
+makepkg -Acs
+pacman -U anydesk-bin.pkg.tar.xz
+
+sudo systemctl enable teamviewerd.service
+sudo systemctl start teamviewerd.service
 Then start teamviewer
 
 
