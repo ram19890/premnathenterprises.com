@@ -3,6 +3,5 @@ theme:
     name: material
 nav:
     - Home: index.md
-    - About: index.md
+    - About: about.md
     - Vim: ./Vim.md
-    - alfa: afro.md

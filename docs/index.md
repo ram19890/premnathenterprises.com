@@ -1,85 +1,114 @@
-# Arch Linux Installation
+# Arch Linux Complete Installation on Laptop V0.1
 
-Check for wireless devices on laptop 
-ip addr
+
+##Check for wireless devices on laptop 
+This shows the list of active network connections
+	
+	ip addr
 
 Turn on wifi module
-ip link set wlp2s0 up
+	
+	ip link set wlp2s0 up
 
-Cli interface to connect to wifi
-wifi-menu
+Use CLI interface to connect to wifi
 
-netctl list
-netctl start profile
-ping 1.1.1.1
+	wifi-menu
+	
+	netctl list
+	
+	netctl start profile
+	
+	ping 1.1.1.1
 
-cfdisk /dev/sda
+`PARTITIONING IS VERY IMPORTANT, kindly BACKUP you drives before further processing`
 
-PARTITIONING IS IMPORTANT
+##Partition the HardDisk/SSD
+Check existing status of the drive
+	
+	fdisk -l
 
-USE GPT for UEFI
-USE BIOS for MBR
+	cfdisk /dev/sda
+
+`USE GPT for UEFI` or `USE BIOS for MBR`
 
 My lap has 232.9G of storage and 4G of RAM
 
-/mnt/boot 512M
-swap 8G
-/mnt {rest of storage}
+###Creating 3 patitons sda1, sda2 and sda3
 
+`CURRENT LAYOUT WITH SIZES`
 
-/dev/sda1 EFI 
-/dev/sda2 SWAP
-/dev/sda3 ROOT
+* /mnt/boot 512M - /dev/sda1 EFI 
+* swap 8G - /dev/sda2 SWAP
+* /mnt {rest of storage} -  /dev/sda3 ROOT
 
-mkfs.fat /dev/sda1
-mkswap /dev/sda2
-swapon /dev/sda2
-free -m
-mkfs.ext4 /dev/sda3
+Using sda1 for boot (/dev/sda1 EFI)
+	
+	mkfs.fat /dev/sda1
+Using sda2 for Swap (/dev/sda2 SWAP)
+	
+	mkswap /dev/sda2
+	swapon /dev/sda2
+	free -m
+Uing sda3 for the root partition /mnt {rest of storage}
+	
+	mkfs.ext4 /dev/sda3
+###After the partiton we need to mount all of them
 
+	mount /dev/sda3 /mnt
+	cd /mnt
+	mkdir boot
+	mount /dev/sda1 /mnt/boot
+	cd /mnt
+##INSTALLATION
+Installs the base packages for the installation
 
-mount /dev/sda3 /mnt
-cd /mnt
-mkdir boot
-mount /dev/sda1 /mnt/boot
-cd /mnt
+	pacstrap /mnt base base-devel
+FSTAB is responsible for booting partition from the etc directory
+	
+	genfstab -U /mnt >> /mnt/etc/fstab
+We now need to boot into Arch Vertual Env
+	
+	arch-chroot /mnt
+WPA-Supplicant is required to store Wirless Hash Passwords
 
-INSTALLATION
+	pacman -S dialog wpa_supplicant
+Set TimeZone	
+	
+	ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+	hwclock --systohc
+Set Keyboard
+	
+	nano /etc/locale.gen
 
-pacstrap /mnt base base-devel
-genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
-pacman -S dialog wpa_supplicant
-ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+	`Uncomment`en_US.UTF-8 UTF-8
+	locale-gen
+Change hostname
 
-hwclock --systohc
+	nano /etc/hostname
+	arch
+Edit hosts file(To identify your network and set loopback)
 
-nano /etc/locale.gen
+	nano /etc/hosts
+	
+	127.0.0.1	localhost
+	::1		localhost
+	127.0.1.1	arch.localdomain arch
+Initialize RamDisk
+	
+	mkinitcpio -p linux
+Change current password for root
+	
+	passwd
+To setup EFI Boot `Make sure to DISABLE Secure Boot while Enabling EFI on LAPTOP BIOS`
+	
+	pacman -S grub efibootmgr
 
-Uncomment en_US.UTF-8 UTF-8
-locale-gen
+	grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --recheck
+	grub-mkconfig -o /boot/grub/grub.cfg
 
-nano /etc/hostname
-arch
-
-nano /etc/hosts
-127.0.0.1	localhost
-::1		localhost
-127.0.1.1	arch.localdomain arch
-
-mkinitcpio -p linux
-
-passwd
-
-pacman -S grub efibootmgr
-
-grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --recheck
-grub-mkconfig -o /boot/grub/grub.cfg
-
-
-xorg i3-wm dmenu sddm xorg-xinit xterm
-
-lxqt
+To interact with the OS using Mouse and KeyBoard, we need a Window Manager(LXQT)
+	
+	pacman -S xorg i3-wm dmenu sddm xorg-xinit xterm lxqt
 
 
 
@@ -100,19 +129,6 @@ lxqt
 
 Then start teamviewer
 
+##Upcoming
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+###`Plan to create an automation script for fast Arch Install (Time duration often depends on net and storage speed!)`
