@@ -1,8 +1,6 @@
-# Gentoo Linux Complete Installation on Intel CPU V0.4(Documented on: 210814)
+# Gentoo Linux Complete Installation on Intel CPU V0.41(Documented on: 210814)
 
-    When installing gentoo make sure you keep the https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation URL page open on another device, as you might see an outdated installation method if you care to follow this tutorial by now!
-
-    This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
+> When installing gentoo make sure you keep the https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation URL page open on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
 
 ### **Basics (Before you continue, check below)**
 * Check the intergrity of the iso file with sha512sum checksum if necessory
@@ -60,7 +58,7 @@ My lap has 232.9G of storage and 8G of RAM
 	nano -w /mnt/gentoo/etc/portage/make.conf
 * This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
 
-> # These settings were set by the catalyst build script that automatically
+ # These settings were set by the catalyst build script that automatically
  # built this stage.
  # Please consult /usr/share/portage/config/make.conf.example for a more
  # detailed example.
