@@ -1,8 +1,8 @@
-#  **Gentoo Linux Complete Installation on Intel CPU V0.51(Documented on: 210814)**
+#  **Gentoo Linux Complete Installation on Intel CPU V0.52(Documented on: 210814)**
 
 > When installing gentoo make sure you keep the *BELOW URL PAGE OPEN* on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
 
-[AMD64 HANDBOOK]https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation
+[AMD64 HANDBOOK](https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation)
 
 ### **Basics (Before you continue, Check Below)**
 * Check the intergrity of the iso file with sha512sum checksum if necessary
@@ -38,9 +38,9 @@ Check existing status of the drive
 
 CURRENT LAYOUT WITH SIZES
 
-	/mnt/boot 512M - /dev/sda1 EFI
-	swap 8G - /dev/sda2 SWAP
-	/mnt {rest of storage} -  /dev/sda3 ROOT
+	/mnt/boot 	512M 			- /dev/sda1 EFI
+	swap 		8G 				  - /dev/sda2 SWAP
+	/mnt 		{rest of storage} -  /dev/sda3 ROOT
 Using sda1 for boot (/dev/sda1 EFI)
 
 	mkfs.vfat -F 32 /dev/sda1
@@ -63,7 +63,7 @@ Setup CFLAGS and CXXFLAGS
 
 	nano -w /mnt/gentoo/etc/portage/make.conf
 	
-This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
+* This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
 
 	 # These settings were set by the catalyst build script that automatically
 	 # built this stage.
@@ -91,12 +91,13 @@ This is only for the Haswell architecture only, kindly refer to Handbook for you
 	mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 
 Edit portage repository	
+	
 	nano /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 
 
 	 [DEFAULT]
 	 main-repo = gentoo
-
+	 
 	 [gentoo]
 	location = /var/db/repos/gentoo
 	sync-type = rsync
@@ -144,7 +145,7 @@ Edit portage repository
 	emerge --ask --verbose --update --deep --newuse @world
 * **This will take time....**
 
-`Edit make.conf for further changes and run emerge!`
+Edit make.conf for further changes and run emerge!
 	
 	nano -w /etc/portage/make.conf
 	emerge -uavDN @world
@@ -152,11 +153,11 @@ Edit portage repository
 
 * If facing any issues with python, exclude the python version
 
-`List all USE flags for further addition and subtraction of flags!`
+List all USE flags for further addition and subtraction of flags!
 	
 	less /var/db/repos/gentoo/profiles/use.desc
 
-* NOTICE: Do not accept EULA!
+* *NOTICE: Do not accept EULA!*
 ### **TimeZone**
 
 	ls /usr/share/zoneinfo
@@ -169,7 +170,7 @@ Edit portage repository
 ### **Locale generation**
 
 	nano -w /etc/locale.gen
-`Uncomment en_US.UTF-8 UTF-8`
+Uncomment `en_US.UTF-8 UTF-8`
 
 	locale-gen
 
@@ -181,19 +182,19 @@ Edit portage repository
 	eselect locale set 5
 * Set to "en_US.utf8"
 
-`Reload the environment:`
+Reload the environment:
 
 	env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
 ### **INSTALLATION**
 
-`Kernel Source:`
+Kernel Source:
 	
 	emerge --ask sys-kernel/gentoo-sources
-``Building and Installing an initramfs:`
+Building and Installing an initramfs:
 
     emerge --ask sys-kernel/genkernel
-` Some drivers require additional firmware:`
+Some drivers require additional firmware:
 
 	emerge --ask sys-kernel/linux-firmware
 
@@ -222,7 +223,7 @@ Edit portage repository
 	nano -w /etc/conf.d/net
 	dns_domain_lo="homenetwork"
 
-`All networking information is gathered in /etc/conf.d/net`
+All networking information is gathered in /etc/conf.d/net
 	
 	emerge --ask --noreplace net-misc/netifrc
 	nano -w /etc/conf.d/net
@@ -304,17 +305,17 @@ Edit portage repository
 	useradd -m -G users,wheel,audio -s /bin/bash ram
 	passwd ram
 
-`Add a new user`
+Add a new user
 
 	useradd -m ram
-`Add password for new user`
+Add password for new user
 
 	passwd ram	
-`Add new user to the wheel and network groups`
+Add new user to the wheel and network groups
 
 	usermod --append --groups wheel ram
 	usermod --append --groups network ram
-`Uncomment the wheel, for root level access for the new user`
+`Uncomment the wheel, for root level access for the new user
 
 	visudo
 	%wheel ALL=(ALL)ALL
@@ -363,19 +364,12 @@ Make sure to find the proper ethernet MAC address to make this work!
 	public = yes
 	writable = yes
 
-`To check for errors, use this command to determine the cause of the issue!`
+To check for errors, use this command to determine the cause of the issue!
 	
 	testparm
-``Start the below services to start Samba`
+Start the below services to start Samba
 
 	sudo systemctl enable smbd
 	sudo systemctl enable nmb
 	sudo systemctl start smbd 
 	sudo systemctl start nmb
-
-## **SystemD**
-
-	sudo systemctl enable teamviewerd.service
-	sudo systemctl start teamviewerd.service
-
-Then start teamviewer
