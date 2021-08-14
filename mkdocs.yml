@@ -3,5 +3,6 @@ theme:
     name: material
 nav:
     - Arch Installation: index.md
+    - Gentoo Installation: gentoo.md
     - About: about.md
     - Vim: ./Vim.md
