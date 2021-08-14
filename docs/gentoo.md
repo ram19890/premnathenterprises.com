@@ -1,4 +1,4 @@
-#  **Gentoo Linux Complete Installation on Intel CPU V0.5(Documented on: 210814)**
+#  **Gentoo Linux Complete Installation on Intel CPU V0.51(Documented on: 210814)**
 
 > When installing gentoo make sure you keep the *BELOW URL PAGE OPEN* on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
 
@@ -36,20 +36,20 @@ Check existing status of the drive
 
 ### **Creating 3 partitions sda1, sda2 and sda3**
 
-* CURRENT LAYOUT WITH SIZES
+CURRENT LAYOUT WITH SIZES
 
-	/m nt/boot 512M - /dev/sda1 EFI
+	/mnt/boot 512M - /dev/sda1 EFI
 	swap 8G - /dev/sda2 SWAP
 	/mnt {rest of storage} -  /dev/sda3 ROOT
-* Using sda1 for boot (/dev/sda1 EFI)
+Using sda1 for boot (/dev/sda1 EFI)
 
 	mkfs.vfat -F 32 /dev/sda1
-* Using sda2 for Swap (/dev/sda2 SWAP)
+Using sda2 for Swap (/dev/sda2 SWAP)
 
 	swapon /dev/sda2
 	mkswap /dev/sda2
 	free -m
-* Using sda3 for the root partition /mnt {rest of storage}
+Using sda3 for the root partition /mnt {rest of storage}
 
 	mkfs.ext4 /dev/sda3
 ### **After the partition we need to mount all of them**
@@ -58,13 +58,13 @@ Check existing status of the drive
 	cd /mnt/gentoo
 	wget "stage-3_tarball.iso" from gentoo download page
 	tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
-* Setup CFLAGS and CXXFLAGS
+
+Setup CFLAGS and CXXFLAGS
 
 	nano -w /mnt/gentoo/etc/portage/make.conf
 	
-* This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
-_
- 
+This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
+
 	 # These settings were set by the catalyst build script that automatically
 	 # built this stage.
 	 # Please consult /usr/share/portage/config/make.conf.example for a more
