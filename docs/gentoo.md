@@ -1,4 +1,4 @@
-#  **Gentoo Linux Complete Installation on Intel CPU V0.52(Documented on: 210814)**
+#  **Gentoo Linux Complete Installation on Intel CPU V0.53(Documented on: 210815)**
 
 > When installing gentoo make sure you keep the *BELOW URL PAGE OPEN* on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
 
@@ -63,7 +63,7 @@ Setup CFLAGS and CXXFLAGS
 
 	nano -w /mnt/gentoo/etc/portage/make.conf
 	
-* This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
+This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
 
 	 # These settings were set by the catalyst build script that automatically
 	 # built this stage.
