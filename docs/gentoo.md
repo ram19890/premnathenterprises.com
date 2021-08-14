@@ -1,8 +1,8 @@
-# Gentoo Linux Complete Installation on Intel CPU V0.42(Documented on: 210814)
+# ** Gentoo Linux Complete Installation on Intel CPU V0.43(Documented on: 210814)**
 
-> When installing gentoo make sure you keep the https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation URL page open on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
+> When installing gentoo make sure you keep the [AMD64 HANDBOOK]https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation URL page open on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
 
-### **Basics (Before you continue, check below)**
+### **Basics (Before you continue, Check Below)**
 * Check the intergrity of the iso file with sha512sum checksum if necessory
 * Download the gentoo minimum iso from the download page
 * Kindly have the fastest INTEL CPU & Internet connection at home(For moderate compilation speeds, as gentoo is pure source based distribution)
@@ -12,10 +12,10 @@
 
 ### **Partition**
 
-    Let's use 128GB SSD for the installation, with 3 partitions sda1(F32)(boot),sda2(swap) and sda3(ext4)(root). Partition them to your liking but the above stays manditory.
+> Let's use 128GB SSD for the installation, with 3 partitions sda1(F32)(boot),sda2(swap) and sda3(ext4)(root). Partition them to your liking but the above stays manditory.
 
 * We should be using the uefi based GPT for boot partition
-* But disable SECURE BOOT on BIOS as it m   ay interfere with the installation
+* But disable SECURE BOOT on BIOS as it may interfere with the installation
 
 
 
@@ -27,6 +27,7 @@
 Check existing status of the drive
 
 	fdisk -l
+
 	cfdisk /dev/sda
 
 `USE GPT for UEFI`
@@ -38,7 +39,9 @@ My lap has 232.9G of storage and 8G of RAM
 `CURRENT LAYOUT WITH SIZES`
 
 	/mnt/boot 512M - /dev/sda1 EFI
+
 	swap 8G - /dev/sda2 SWAP
+
 	/mnt {rest of storage} -  /dev/sda3 ROOT
 * Using sda1 for boot (/dev/sda1 EFI)
 	mkfs.vfat -F 32 /dev/sda1
