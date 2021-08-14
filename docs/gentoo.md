@@ -1,11 +1,11 @@
-#  **Gentoo Linux Complete Installation on Intel CPU V0.53(Documented on: 210815)**
+#  **Gentoo Linux Complete Installation on Intel CPU V0.54(Documented on: 210815)**
 
-> When installing gentoo make sure you keep the *BELOW URL PAGE OPEN* on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
+> When installing gentoo make sure you keep the *BELOW URL PAGE OPEN* on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with extreme detailing.
 
 [AMD64 HANDBOOK](https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation)
 
 ### **Basics (Before you continue, Check Below)**
-* Check the intergrity of the iso file with sha512sum checksum if necessary
+* Check the integrity of the iso file with sha512sum checksum if necessary
 * Download the gentoo minimum iso from the download page
 * Kindly have the fastest INTEL CPU & Internet connection at home(For moderate compilation speeds, as gentoo is pure source based distribution)
 * SSD or NVME please
@@ -22,6 +22,7 @@
 
 
 ### **Check internet connection**
+	
 	ping google.com
 * If this doesn't work, refer Handbook!
 
@@ -36,7 +37,7 @@ Check existing status of the drive
 
 ### **Creating 3 partitions sda1, sda2 and sda3**
 
-CURRENT LAYOUT WITH SIZES
+**CURRENT LAYOUT WITH SIZES*
 
 	/mnt/boot 	512M 			- /dev/sda1 EFI
 	swap 		8G 				  - /dev/sda2 SWAP
@@ -59,11 +60,11 @@ Using sda3 for the root partition /mnt {rest of storage}
 	wget "stage-3_tarball.iso" from gentoo download page
 	tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
-Setup CFLAGS and CXXFLAGS
+### **Setup CFLAGS and CXXFLAGS**
 
 	nano -w /mnt/gentoo/etc/portage/make.conf
 	
-This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
+This is only for the Haswell architecture, kindly refer to Handbook for your specific flag setup!
 
 	 # These settings were set by the catalyst build script that automatically
 	 # built this stage.
@@ -90,7 +91,7 @@ This is only for the Haswell architecture only, kindly refer to Handbook for you
 	
 	mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 
-Edit portage repository	
+### **Edit portage repository**
 	
 	nano /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 
@@ -107,12 +108,12 @@ Edit portage repository
 	sync-rsync-verify-metamanifest = yes
 	sync-rsync-verify-max-age = 24
 	sync-openpgp-key-path = /usr/share/openpgp-keys/gentoo-release.asc
-	sync-openpgp-key-refresh-retry-count = 40
+	sync-openpgp-key-path = 40
 	sync-openpgp-key-refresh-retry-overall-timeout = 1200
 	sync-openpgp-key-refresh-retry-delay-exp-base = 2
 	sync-openpgp-key-refresh-retry-delay-max = 60
 	sync-openpgp-key-refresh-retry-delay-mult = 4
-### **MOUNTING**
+### **Mounting**
 	
 	mount --types proc /proc /mnt/gentoo/proc
 	mount --rbind /sys /mnt/gentoo/sys
@@ -138,7 +139,7 @@ Edit portage repository
 
 	eselect profile list
 	eselect profile set 9
-* We would like to install kde with systemd support
+* We would like to install *kde* with *systemd* support
 
 ### **Updating the @world set**
 
@@ -157,15 +158,13 @@ List all USE flags for further addition and subtraction of flags!
 	
 	less /var/db/repos/gentoo/profiles/use.desc
 
-* *NOTICE: Do not accept EULA!*
+*NOTICE: Do not accept EULA!*
 ### **TimeZone**
 
 	ls /usr/share/zoneinfo
 	ln -sf ../usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 
-`etc-update`
-`emerge --sync`
-`etc-update --automode -3`
+`etc-update && emerge --sync && etc-update --automode -3`
 
 ### **Locale generation**
 
@@ -186,7 +185,7 @@ Reload the environment:
 
 	env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
-### **INSTALLATION**
+### **Installation		**
 
 Kernel Source:
 	
@@ -237,10 +236,10 @@ All networking information is gathered in /etc/conf.d/net
 
 	config_eth0="dhcp"
 
-### **Host File(example):**
+## **Host File(example):**
 	
 	nano -w /etc/hosts
-
+Change the name and ip accordingly!
 
 	# This defines the current system and must be set
 	127.0.0.1     tux.homenetwork tux localhost
@@ -248,23 +247,23 @@ All networking information is gathered in /etc/conf.d/net
 	192.168.0.5   jenny.homenetwork jenny
 	192.168.0.6   benny.homenetwork benny
 
-### **Change current password for root**
+## **Change current password for root**
 	
 	passwd
-### **Install the system logger, DHCP, wireless networking tools & File indexing**
+## **Install the system logger, DHCP, wireless networking tools & File indexing**
 	
 	emerge --ask app-admin/sysklogd
 	emerge --ask sys-apps/mlocate
 	emerge --ask net-misc/dhcpcd
 	emerge --ask net-wireless/iw net-wireless/wpa_supplicant
 
-### **GRUB2 config**
+## **GRUB2 config**
 	
 	echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
 	emerge --ask --verbose sys-boot/grub:2
 	grub-install --target=x86_64-efi --efi-directory=/boot
 
-### **Generate the final GRUB2 configuration**
+## **Generate the final GRUB2 configuration**
 	
 	grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -273,7 +272,7 @@ All networking information is gathered in /etc/conf.d/net
 	ip addr
 	wpa_cli -i wlp0s20u9
 	dhcpcd
-	ping ddg.gg
+	ping google.com
 	vim /etc/resolv.conf
 	vim /etc/systemd/network/50-dhcp.network
 	vim /etc/resolv.conf
@@ -315,15 +314,15 @@ Add new user to the wheel and network groups
 
 	usermod --append --groups wheel ram
 	usermod --append --groups network ram
-`Uncomment the wheel, for root level access for the new user
+Uncomment the wheel, for root level access for the new user
 
 	visudo
 	%wheel ALL=(ALL)ALL
 
 ## **To enable WOL, make sure you enable it on BIOS**
-Kindly check, if your ethernet device supports WOL 
+Kindly check, if your Ethernet device supports WOL 
 	ethtool interface | grep Wake-on
-Make sure to find the proper ethernet MAC address to make this work!
+Make sure to find the proper Ethernet MAC address to make this work!
 	vim /usr/lib/systemd/network/99-default.link
 	
 	[Match]
@@ -334,15 +333,16 @@ Make sure to find the proper ethernet MAC address to make this work!
 	MACAddressPolicy=persistent
 	WakeOnLan=magic
 
-## **SAMBA(Still buggy)**
-	To create a samba server all you need is to create a samba user and point to the directory to share!	Instead of /opt use your own user directory
+## **Samba(Might Be Buggy)**
+	
+To create a samba server all you need is to create a samba user and point to the directory to share!	Instead of /opt use your own user directory
 	
 	sudo emerge --ask samba
-`Create a new samba user & password for the same.`
+Create a new samba user & password for the same.
 	
 	smbpasswd -a ram
 	smbpasswd ram
-`To list all samba users`
+To list all samba users
 
 	sudo pdbedit -L -v
 
