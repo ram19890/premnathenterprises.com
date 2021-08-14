@@ -1,4 +1,4 @@
-# Gentoo Linux Complete Installation on Intel CPU V0.1(Documented on: 210814)
+# Gentoo Linux Complete Installation on Intel CPU V0.2(Documented on: 210814)
 
 When installing gentoo make sure you keep the https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation URL page open on another device, as you might see an outdated installation method if you care to follow this tutorial by now! 
 This installation is done with minimum effort for installing the base system, without tangling with exterme detailing.
@@ -37,9 +37,9 @@ My lap has 232.9G of storage and 8G of RAM
 
 `CURRENT LAYOUT WITH SIZES`
 
-* /mnt/boot 512M - /dev/sda1 EFI
-* swap 8G - /dev/sda2 SWAP
-* /mnt {rest of storage} -  /dev/sda3 ROOT
+	/mnt/boot 512M - /dev/sda1 EFI
+	swap 8G - /dev/sda2 SWAP
+	/mnt {rest of storage} -  /dev/sda3 ROOT
 
 Using sda1 for boot (/dev/sda1 EFI)
 
@@ -56,13 +56,13 @@ Uing sda3 for the root partition /mnt {rest of storage}
 
 ### After the partiton we need to mount all of them
 
-* mount /dev/sda3 /mnt/gentoo
-* cd /mnt/gentoo
-* wget "stage-3_tarball.iso" from gentoo download page
-* tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
-	Setup CFLAGS and CXXFLAGS
-* nano -w /mnt/gentoo/etc/portage/make.conf
-This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
+	mount /dev/sda3 /mnt/gentoo
+	cd /mnt/gentoo
+	wget "stage-3_tarball.iso" from gentoo download page
+	tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
+* Setup CFLAGS and CXXFLAGS
+	nano -w /mnt/gentoo/etc/portage/make.conf
+* This is only for the Haswell architecture only, kindly refer to Handbook for your specific flag setup!
         =====================
 # These settings were set by the catalyst build script that automatically
 # built this stage.
@@ -88,8 +88,8 @@ USE="euse bluetooth"
         =====================
 ## Chrooting
 ### Setup fastest mirror
-* mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
-* nano /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
+	mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
+	nano /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 DEFAULT repo sync
         =====================
 [DEFAULT]
@@ -111,101 +111,98 @@ sync-openpgp-key-refresh-retry-delay-max = 60
 sync-openpgp-key-refresh-retry-delay-mult = 4
         =====================
 ## MOUNTING
-* mount --types proc /proc /mnt/gentoo/proc
-* mount --rbind /sys /mnt/gentoo/sys
-* mount --make-rslave /mnt/gentoo/sys
-* mount --rbind /dev /mnt/gentoo/dev
-* mount --make-rslave /mnt/gentoo/dev
+	mount --types proc /proc /mnt/gentoo/proc
+	mount --rbind /sys /mnt/gentoo/sys
+	mount --make-rslave /mnt/gentoo/sys
+	mount --rbind /dev /mnt/gentoo/dev
+	mount --make-rslave /mnt/gentoo/dev
 
 ## Entering the new environment
-* chroot /mnt/gentoo /bin/bash
-* source /etc/profile
-* export PS1="(chroot) ${PS1}"
+	chroot /mnt/gentoo /bin/bash
+	source /etc/profile
+	export PS1="(chroot) ${PS1}"
 
 ## Mounting the boot partition
-* mount /dev/sda1 /boot
+	mount /dev/sda1 /boot
 
 ## Configuring Portage
-* emerge-webrsync
+	emerge-webrsync
 
 ## Choosing the right profile
-* eselect profile list
-* eselect profile set 9
-We would like to install kde with systemd support
+	eselect profile list
+	eselect profile set 9
+* We would like to install kde with systemd support
 ## Updating the @world set
-* emerge --ask --verbose --update --deep --newuse @world
-This will take time....
+	emerge --ask --verbose --update --deep --newuse @world
+* This will take time....
 
-Edit make.conf for further changes and run emerge!
-* nano -w /etc/portage/make.conf
-* emerge -uavDN @world
+* Edit make.conf for further changes and run emerge!
+	nano -w /etc/portage/make.conf
+	emerge -uavDN @world
 
-* emerge -uUDav --exclude python:3.9 @world
-If facing any issues with python, exclude the python version
+	emerge -uUDav --exclude python:3.9 @world
+* If facing any issues with python, exclude the python version
 
-List all USE flags for further addition and subtraction of flags!
-* less /var/db/repos/gentoo/profiles/use.desc
+* List all USE flags for further addition and subtraction of flags!
+	less /var/db/repos/gentoo/profiles/use.desc
 
-NOTICE: Do not accept EULA!
+* NOTICE: Do not accept EULA!
 ## TimeZone
-* ls /usr/share/zoneinfo
-* ln -sf ../usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+	ls /usr/share/zoneinfo
+	ln -sf ../usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 
 // etc-update
 // emerge --sync
 // etc-update --automode -3
 
 ## Locale generation
-* nano -w /etc/locale.gen
-Uncomment en_US.UTF-8 UTF-8
-* locale-gen
+	nano -w /etc/locale.gen
+* Uncomment en_US.UTF-8 UTF-8
+	locale-gen
 
 // . /etc/profile
 
 ## Locale selection
-* eselect locale list
-* eselect locale set 5
-Set to "en_US.utf8"
+	eselect locale list
+	eselect locale set 5
+* Set to "en_US.utf8"
 
-Reload the environment:
-env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+* Reload the environment:
+	env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
 ## INSTALLATION
 
-Kernel Source:
-* emerge --ask sys-kernel/gentoo-sources
-Building and Installing an initramfs:
-* emerge --ask sys-kernel/genkernel
-Some drivers require additional firmware:
-* emerge --ask sys-kernel/linux-firmware
+* Kernel Source:
+	emerge --ask sys-kernel/gentoo-sources
+* Building and Installing an initramfs:
+    emerge --ask sys-kernel/genkernel
+* Some drivers require additional firmware:
+	emerge --ask sys-kernel/linux-firmware
 
 // echo "sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE" | tee -a /etc/portage/package.license
-
-* nano -w /etc/fstab
+	nano -w /etc/fstab
 // genkernel all
 ## Partition labels & UUIDs
-blkid
-
-* nano -w /etc/fstab
-* emerge --ask vim
-* emerge --ask wpa_supplicant
-* wpa_cli
-* systemctl status sshd
-* systemctl enable sshd
-* systemctl start sshd
-* fdisk -l
-* vim /etc/fstab
+	blkid
+	nano -w /etc/fstab
+	emerge --ask vim
+	emerge --ask wpa_supplicant
+	wpa_cli
+	systemctl status sshd
+	systemctl enable sshd
+	systemctl start sshd
+	fdisk -l
+	vim /etc/fstab
 
 ## Host and domain information
-* nano -w /etc/conf.d/hostname
-* hostname="tux"
+	nano -w /etc/conf.d/hostname
+	hostname="tux"
+	nano -w /etc/conf.d/net
+	dns_domain_lo="homenetwork"
 
-* nano -w /etc/conf.d/net
-* dns_domain_lo="homenetwork"
-
-All networking information is gathered in /etc/conf.d/net
-* emerge --ask --noreplace net-misc/netifrc
-* nano -w /etc/conf.d/net
+* All networking information is gathered in /etc/conf.d/net
+	emerge --ask --noreplace net-misc/netifrc
+	nano -w /etc/conf.d/net
 =====================
 #For Manual ip assign
 config_eth0="192.168.0.2 netmask 255.255.255.0 brd 192.168.0.255"
@@ -217,7 +214,7 @@ config_eth0="dhcp"
 =====================
 
 ## Host File(example):
-nano -w /etc/hosts
+	nano -w /etc/hosts
 
     =====================
 # This defines the current system and must be set
@@ -229,20 +226,20 @@ nano -w /etc/hosts
     =====================
 
 ## Change current password for root
-* passwd
+	passwd
 ## Install the system logger, DHCP, wireless networking tools & File indexing
-* emerge --ask app-admin/sysklogd
-* emerge --ask sys-apps/mlocate
-* emerge --ask net-misc/dhcpcd
-* emerge --ask net-wireless/iw net-wireless/wpa_supplicant
+	emerge --ask app-admin/sysklogd
+	emerge --ask sys-apps/mlocate
+	emerge --ask net-misc/dhcpcd
+	emerge --ask net-wireless/iw net-wireless/wpa_supplicant
 
 ## GRUB2 config
-* echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
-* emerge --ask --verbose sys-boot/grub:2
-* grub-install --target=x86_64-efi --efi-directory=/boot
+	echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
+	emerge --ask --verbose sys-boot/grub:2
+	grub-install --target=x86_64-efi --efi-directory=/boot
 
 ## Generate the final GRUB2 configuration
-* grub-mkconfig -o /boot/grub/grub.cfg
+	grub-mkconfig -o /boot/grub/grub.cfg
 
 # POST INSTALLATION
 
