@@ -2,6 +2,6 @@ site_name: Ram's Easy Setup Guide
 theme:
     name: material
 nav:
-    - Home: index.md
+    - Arch Installation: index.md
     - About: about.md
     - Vim: ./Vim.md
