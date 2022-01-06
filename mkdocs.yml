@@ -1,5 +1,5 @@
 site_name: Ram's Easy Setup Guide
-theme:
+theme: material
   palette:
     primary: indigo
 nav:
