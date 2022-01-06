@@ -1,4 +1,4 @@
 My Offical Tutorial Page for Linux Installations & others!
-https://premnathenterprises.com
+premnathenterprises.com
 
 Minor Changes Made.
