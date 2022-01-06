@@ -1,7 +1,7 @@
 site_name: Ram's Easy Setup Guide
- theme:
-   name: material
- nav:
+theme:
+    name: material
+nav:
     - Arch Installation: index.md
     - Gentoo Installation: gentoo.md
     - About: about.md
