@@ -1,8 +1,7 @@
 site_name: Ram's Easy Setup Guide
   theme:
    name: material
-   primary: indigo
-nav:
+ nav:
     - Arch Installation: index.md
     - Gentoo Installation: gentoo.md
     - About: about.md
