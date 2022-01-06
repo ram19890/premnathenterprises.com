@@ -1,5 +1,6 @@
 site_name: Ram's Easy Setup Guide
-  theme: material
+  theme: 
+    name: material
     primary: indigo
 nav:
     - Arch Installation: index.md
