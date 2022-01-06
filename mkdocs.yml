@@ -1,9 +1,7 @@
 site_name: Ram's Easy Setup Guide
 theme:
-    name: material
-palette:
-    primary: red
-    accent: pink
+  palette:
+    primary: indigo
 nav:
     - Arch Installation: index.md
     - Gentoo Installation: gentoo.md
