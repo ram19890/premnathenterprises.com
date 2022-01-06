@@ -1,5 +1,5 @@
 site_name: Ram's Easy Setup Guide
-theme:
+ theme:
    name: material
  nav:
     - Arch Installation: index.md
