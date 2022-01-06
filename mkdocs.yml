@@ -1,11 +1,14 @@
 site_name: Ram's Easy Setup Guide
 theme:
-name: material
-palette:
-- scheme: default
-toggle:
-icon: material/toggle-switch-off-outline
-accent: pink
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 nav:
     - Arch Installation: index.md
     - Gentoo Installation: gentoo.md
