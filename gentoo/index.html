@@ -1,0 +1,1118 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../about/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Gentoo Installation - Ram's Easy Setup Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="teal">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gentoo-linux-complete-installation-on-intel-cpu-v054documented-on-210815" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ram&#39;s Easy Setup Guide" class="md-header__button md-logo" aria-label="Ram's Easy Setup Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ram's Easy Setup Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gentoo Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ram&#39;s Easy Setup Guide" class="md-nav__button md-logo" aria-label="Ram's Easy Setup Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Ram's Easy Setup Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Arch Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Gentoo Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Gentoo Installation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basics-before-you-continue-check-below" class="md-nav__link">
+    Basics (Before you continue, Check Below)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    Partition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-internet-connection" class="md-nav__link">
+    Check internet connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-the-ssd" class="md-nav__link">
+    Partition the SSD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-3-partitions-sda1-sda2-and-sda3" class="md-nav__link">
+    Creating 3 partitions sda1, sda2 and sda3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-the-partition-we-need-to-mount-all-of-them" class="md-nav__link">
+    After the partition we need to mount all of them
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-cflags-and-cxxflags" class="md-nav__link">
+    Setup CFLAGS and CXXFLAGS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-fastest-mirror" class="md-nav__link">
+    Setup fastest mirror
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-portage-repository" class="md-nav__link">
+    Edit portage repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting" class="md-nav__link">
+    Mounting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entering-the-new-environment-chrooting" class="md-nav__link">
+    Entering the new environment (Chrooting)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting-the-boot-partition" class="md-nav__link">
+    Mounting the boot partition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-portage" class="md-nav__link">
+    Configuring Portage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-right-profile" class="md-nav__link">
+    Choosing the right profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-world-set" class="md-nav__link">
+    Updating the @world set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timezone" class="md-nav__link">
+    TimeZone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locale-generation" class="md-nav__link">
+    Locale generation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locale-selection" class="md-nav__link">
+    Locale selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    **Installation      **
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-labels-uuids" class="md-nav__link">
+    Partition labels &amp; UUIDs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#host-and-domain-information" class="md-nav__link">
+    Host and domain information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#host-fileexample" class="md-nav__link">
+    Host File(example):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-current-password-for-root" class="md-nav__link">
+    Change current password for root
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-system-logger-dhcp-wireless-networking-tools-file-indexing" class="md-nav__link">
+    Install the system logger, DHCP, wireless networking tools &amp; File indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grub2-config" class="md-nav__link">
+    GRUB2 config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-the-final-grub2-configuration" class="md-nav__link">
+    Generate the final GRUB2 configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-installation" class="md-nav__link">
+    POST INSTALLATION
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-enable-wol-make-sure-you-enable-it-on-bios" class="md-nav__link">
+    To enable WOL, make sure you enable it on BIOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sambamight-be-buggy" class="md-nav__link">
+    Samba(Might Be Buggy)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vim/" class="md-nav__link">
+        Vim
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basics-before-you-continue-check-below" class="md-nav__link">
+    Basics (Before you continue, Check Below)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    Partition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-internet-connection" class="md-nav__link">
+    Check internet connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-the-ssd" class="md-nav__link">
+    Partition the SSD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-3-partitions-sda1-sda2-and-sda3" class="md-nav__link">
+    Creating 3 partitions sda1, sda2 and sda3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-the-partition-we-need-to-mount-all-of-them" class="md-nav__link">
+    After the partition we need to mount all of them
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-cflags-and-cxxflags" class="md-nav__link">
+    Setup CFLAGS and CXXFLAGS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-fastest-mirror" class="md-nav__link">
+    Setup fastest mirror
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-portage-repository" class="md-nav__link">
+    Edit portage repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting" class="md-nav__link">
+    Mounting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entering-the-new-environment-chrooting" class="md-nav__link">
+    Entering the new environment (Chrooting)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting-the-boot-partition" class="md-nav__link">
+    Mounting the boot partition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-portage" class="md-nav__link">
+    Configuring Portage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-right-profile" class="md-nav__link">
+    Choosing the right profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-world-set" class="md-nav__link">
+    Updating the @world set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timezone" class="md-nav__link">
+    TimeZone
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locale-generation" class="md-nav__link">
+    Locale generation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locale-selection" class="md-nav__link">
+    Locale selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    **Installation      **
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partition-labels-uuids" class="md-nav__link">
+    Partition labels &amp; UUIDs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#host-and-domain-information" class="md-nav__link">
+    Host and domain information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#host-fileexample" class="md-nav__link">
+    Host File(example):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-current-password-for-root" class="md-nav__link">
+    Change current password for root
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-system-logger-dhcp-wireless-networking-tools-file-indexing" class="md-nav__link">
+    Install the system logger, DHCP, wireless networking tools &amp; File indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grub2-config" class="md-nav__link">
+    GRUB2 config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-the-final-grub2-configuration" class="md-nav__link">
+    Generate the final GRUB2 configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-installation" class="md-nav__link">
+    POST INSTALLATION
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-enable-wol-make-sure-you-enable-it-on-bios" class="md-nav__link">
+    To enable WOL, make sure you enable it on BIOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sambamight-be-buggy" class="md-nav__link">
+    Samba(Might Be Buggy)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="gentoo-linux-complete-installation-on-intel-cpu-v054documented-on-210815"><strong>Gentoo Linux Complete Installation on Intel CPU V0.54(Documented on: 210815)</strong></h1>
+<blockquote>
+<p>When installing gentoo make sure you keep the <em>BELOW URL PAGE OPEN</em> on another device, as you might see an outdated installation method if you care to follow this tutorial by now! This installation is done with minimum effort for installing the base system, without tangling with extreme detailing.</p>
+</blockquote>
+<p><a href="https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation">AMD64 HANDBOOK</a></p>
+<h3 id="basics-before-you-continue-check-below"><strong>Basics (Before you continue, Check Below)</strong></h3>
+<ul>
+<li>Check the integrity of the iso file with sha512sum checksum if necessary</li>
+<li>Download the gentoo minimum iso from the download page</li>
+<li>Kindly have the fastest INTEL CPU &amp; Internet connection at home(For moderate compilation speeds, as gentoo is pure source based distribution)</li>
+<li>SSD or NVME please</li>
+<li>RAM above 8GB</li>
+<li>Some patience ;-)</li>
+</ul>
+<h3 id="partition"><strong>Partition</strong></h3>
+<blockquote>
+<p>Let's use 128GB SSD for the installation, with 3 partitions sda1(F32)(boot),sda2(swap) and sda3(ext4)(root). Partition them to your liking but the above stays mandatory</p>
+</blockquote>
+<ul>
+<li>We should be using the uefi based GPT for boot partition</li>
+<li>But disable SECURE BOOT on BIOS as it may interfere with the installation</li>
+</ul>
+<h3 id="check-internet-connection"><strong>Check internet connection</strong></h3>
+<pre><code>ping google.com
+</code></pre>
+<ul>
+<li>If this doesn't work, refer Handbook!</li>
+</ul>
+<h3 id="partition-the-ssd"><strong>Partition the SSD</strong></h3>
+<p>Check existing status of the drive</p>
+<pre><code>fdisk -l
+cfdisk /dev/sda
+</code></pre>
+<ul>
+<li>USE GPT for UEFI</li>
+<li>My lap has 232.9G of storage and 8G of RAM</li>
+</ul>
+<h3 id="creating-3-partitions-sda1-sda2-and-sda3"><strong>Creating 3 partitions sda1, sda2 and sda3</strong></h3>
+<p>*<em>CURRENT LAYOUT WITH SIZES</em></p>
+<pre><code>/mnt/boot   512M            - /dev/sda1 EFI
+swap        8G                - /dev/sda2 SWAP
+/mnt        {rest of storage} -  /dev/sda3 ROOT
+</code></pre>
+<p>Using sda1 for boot (/dev/sda1 EFI)</p>
+<pre><code>mkfs.vfat -F 32 /dev/sda1
+</code></pre>
+<p>Using sda2 for Swap (/dev/sda2 SWAP)</p>
+<pre><code>swapon /dev/sda2
+mkswap /dev/sda2
+free -m
+</code></pre>
+<p>Using sda3 for the root partition /mnt {rest of storage}</p>
+<pre><code>mkfs.ext4 /dev/sda3
+</code></pre>
+<h3 id="after-the-partition-we-need-to-mount-all-of-them"><strong>After the partition we need to mount all of them</strong></h3>
+<pre><code>mount /dev/sda3 /mnt/gentoo
+cd /mnt/gentoo
+wget "stage-3_tarball.iso" from gentoo download page
+tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
+</code></pre>
+<h3 id="setup-cflags-and-cxxflags"><strong>Setup CFLAGS and CXXFLAGS</strong></h3>
+<pre><code>nano -w /mnt/gentoo/etc/portage/make.conf
+</code></pre>
+<p>This is only for the Haswell architecture, kindly refer to Handbook for your specific flag setup!</p>
+<pre><code> # These settings were set by the catalyst build script that automatically
+ # built this stage.
+ # Please consult /usr/share/portage/config/make.conf.example for a more
+ # detailed example.
+ COMMON_FLAGS="-march=native -O2 -pipe"
+ CFLAGS="${COMMON_FLAGS}"
+ CXXFLAGS="${COMMON_FLAGS}"
+ FCFLAGS="${COMMON_FLAGS}"
+ FFLAGS="${COMMON_FLAGS}"
+ MAKEOPTS="-j4"
+ # NOTE: This stage was built with the bindist Use flag enabled
+ PORTDIR="/var/db/repos/gentoo"
+ DISTDIR="/var/cache/distfiles"
+ PKGDIR="/var/cache/binpkgs"
+ #USE="-gtk -gnome qt4 qt5 kde dvd alsa cdr systemd udev activities declarative dri kde kwallet &gt; phonon plasma policykit qml semantic-desktop widgets"
+ # This sets the language of build output to English.
+ # Please keep this setting intact when reporting bugs.
+ LC_MESSAGES=C
+ GRUB_PLATFORMS="efi-64"
+ USE="euse bluetooth"
+ #ACCEPT_KEYWORDS="~amd64"
+</code></pre>
+<h3 id="setup-fastest-mirror"><strong>Setup fastest mirror</strong></h3>
+<pre><code>mirrorselect -i -o &gt;&gt; /mnt/gentoo/etc/portage/make.conf
+</code></pre>
+<h3 id="edit-portage-repository"><strong>Edit portage repository</strong></h3>
+<pre><code>nano /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
+
+
+ [DEFAULT]
+ main-repo = gentoo
+
+ [gentoo]
+location = /var/db/repos/gentoo
+sync-type = rsync
+sync-uri = rsync://rsync.gentoo.org/gentoo-portage
+auto-sync = yes
+sync-rsync-verify-jobs = 1
+sync-rsync-verify-metamanifest = yes
+sync-rsync-verify-max-age = 24
+sync-openpgp-key-path = /usr/share/openpgp-keys/gentoo-release.asc
+sync-openpgp-key-path = 40
+sync-openpgp-key-refresh-retry-overall-timeout = 1200
+sync-openpgp-key-refresh-retry-delay-exp-base = 2
+sync-openpgp-key-refresh-retry-delay-max = 60
+sync-openpgp-key-refresh-retry-delay-mult = 4
+</code></pre>
+<h3 id="mounting"><strong>Mounting</strong></h3>
+<pre><code>mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+</code></pre>
+<h3 id="entering-the-new-environment-chrooting"><strong>Entering the new environment (Chrooting)</strong></h3>
+<pre><code>chroot /mnt/gentoo /bin/bash
+source /etc/profile
+export PS1="(chroot) ${PS1}"
+</code></pre>
+<h3 id="mounting-the-boot-partition"><strong>Mounting the boot partition</strong></h3>
+<pre><code>mount /dev/sda1 /boot
+</code></pre>
+<h3 id="configuring-portage"><strong>Configuring Portage</strong></h3>
+<pre><code>emerge-webrsync
+</code></pre>
+<h3 id="choosing-the-right-profile"><strong>Choosing the right profile</strong></h3>
+<pre><code>eselect profile list
+eselect profile set 9
+</code></pre>
+<ul>
+<li>We would like to install <em>kde</em> with <em>systemd</em> support</li>
+</ul>
+<h3 id="updating-the-world-set"><strong>Updating the @world set</strong></h3>
+<pre><code>emerge --ask --verbose --update --deep --newuse @world
+</code></pre>
+<ul>
+<li><strong>This will take time....</strong></li>
+</ul>
+<p>Edit make.conf for further changes and run emerge!</p>
+<pre><code>nano -w /etc/portage/make.conf
+emerge -uavDN @world
+emerge -uUDav --exclude python:3.9 @world
+</code></pre>
+<ul>
+<li>If facing any issues with python, exclude the python version</li>
+</ul>
+<p>List all USE flags for further addition and subtraction of flags!</p>
+<pre><code>less /var/db/repos/gentoo/profiles/use.desc
+</code></pre>
+<p><em>NOTICE: Do not accept EULA!</em></p>
+<h3 id="timezone"><strong>TimeZone</strong></h3>
+<pre><code>ls /usr/share/zoneinfo
+ln -sf ../usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+</code></pre>
+<p><code>etc-update &amp;&amp; emerge --sync &amp;&amp; etc-update --automode -3</code></p>
+<h3 id="locale-generation"><strong>Locale generation</strong></h3>
+<pre><code>nano -w /etc/locale.gen
+</code></pre>
+<p>Uncomment <code>en_US.UTF-8 UTF-8</code></p>
+<pre><code>locale-gen
+</code></pre>
+<p><code>. /etc/profile</code></p>
+<h3 id="locale-selection"><strong>Locale selection</strong></h3>
+<pre><code>eselect locale list
+eselect locale set 5
+</code></pre>
+<ul>
+<li>Set to "en_US.utf8"</li>
+</ul>
+<p>Reload the environment:</p>
+<pre><code>env-update &amp;&amp; source /etc/profile &amp;&amp; export PS1="(chroot) ${PS1}"
+</code></pre>
+<h3 id="installation">**Installation      **</h3>
+<p>Kernel Source:</p>
+<pre><code>emerge --ask sys-kernel/gentoo-sources
+</code></pre>
+<p>Building and Installing an initramfs:</p>
+<pre><code>emerge --ask sys-kernel/genkernel
+</code></pre>
+<p>Some drivers require additional firmware:</p>
+<pre><code>emerge --ask sys-kernel/linux-firmware
+</code></pre>
+<p><code>echo "sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE" | tee -a /etc/portage/package.license</code></p>
+<pre><code>nano -w /etc/fstab
+
+`genkernel all`
+</code></pre>
+<h3 id="partition-labels-uuids"><strong>Partition labels &amp; UUIDs</strong></h3>
+<pre><code>blkid
+nano -w /etc/fstab
+emerge --ask vim
+emerge --ask wpa_supplicant
+wpa_cli
+systemctl status sshd
+systemctl enable sshd
+systemctl start sshd
+fdisk -l
+vim /etc/fstab
+</code></pre>
+<h2 id="host-and-domain-information"><strong>Host and domain information</strong></h2>
+<pre><code>nano -w /etc/conf.d/hostname
+hostname="tux"
+nano -w /etc/conf.d/net
+dns_domain_lo="homenetwork"
+</code></pre>
+<p>All networking information is gathered in /etc/conf.d/net</p>
+<pre><code>emerge --ask --noreplace net-misc/netifrc
+nano -w /etc/conf.d/net
+</code></pre>
+<p><code>For Manual ip assign</code></p>
+<pre><code>config_eth0="192.168.0.2 netmask 255.255.255.0 brd 192.168.0.255"
+routes_eth0="default via 192.168.0.1"
+</code></pre>
+<p><code>For DHCP</code></p>
+<pre><code>config_eth0="dhcp"
+</code></pre>
+<h2 id="host-fileexample"><strong>Host File(example):</strong></h2>
+<pre><code>nano -w /etc/hosts
+</code></pre>
+<p>Change the name and ip accordingly!</p>
+<pre><code># This defines the current system and must be set
+127.0.0.1     tux.homenetwork tux localhost
+# Optional definition of extra systems on the network
+192.168.0.5   jenny.homenetwork jenny
+192.168.0.6   benny.homenetwork benny
+</code></pre>
+<h2 id="change-current-password-for-root"><strong>Change current password for root</strong></h2>
+<pre><code>passwd
+</code></pre>
+<h2 id="install-the-system-logger-dhcp-wireless-networking-tools-file-indexing"><strong>Install the system logger, DHCP, wireless networking tools &amp; File indexing</strong></h2>
+<pre><code>emerge --ask app-admin/sysklogd
+emerge --ask sys-apps/mlocate
+emerge --ask net-misc/dhcpcd
+emerge --ask net-wireless/iw net-wireless/wpa_supplicant
+</code></pre>
+<h2 id="grub2-config"><strong>GRUB2 config</strong></h2>
+<pre><code>echo 'GRUB_PLATFORMS="efi-64"' &gt;&gt; /etc/portage/make.conf
+emerge --ask --verbose sys-boot/grub:2
+grub-install --target=x86_64-efi --efi-directory=/boot
+</code></pre>
+<h2 id="generate-the-final-grub2-configuration"><strong>Generate the final GRUB2 configuration</strong></h2>
+<pre><code>grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<h2 id="post-installation"><strong>POST INSTALLATION</strong></h2>
+<pre><code>ip addr
+wpa_cli -i wlp0s20u9
+dhcpcd
+ping google.com
+vim /etc/resolv.conf
+vim /etc/systemd/network/50-dhcp.network
+vim /etc/resolv.conf
+systemctl enable systemd-resolved.service
+systemctl start systemd-resolved.service
+nmtui
+vim /etc/resolv.conf
+systemctl start dhcpcd
+systemctl enable dhcpcd
+vim /etc/dispatch-conf.conf
+emerge --ask app-misc/colordiff
+vim  /etc/dispatch-conf.conf
+eselect editor list
+emerge --ask dispatch-conf
+emerge --ask app-portage/dispatch
+emerge --ask rcs
+vim /etc/dispatch-conf.conf
+emerge --verbose --info | egrep '^USE'
+portageq envvar EDITOR
+emerge --ask git
+emerge --ask dev-vcs/git
+emerge --ask kde-plasma/plasma-meta
+startx
+systemctl enable sddm
+systemctl start sddm
+emerge --ask sudo
+sudo
+visudo
+useradd -m -G users,wheel,audio -s /bin/bash ram
+passwd ram
+</code></pre>
+<p>Add a new user</p>
+<pre><code>useradd -m ram
+</code></pre>
+<p>Add password for new user</p>
+<pre><code>passwd ram
+</code></pre>
+<p>Add new user to the wheel and network groups</p>
+<pre><code>usermod --append --groups wheel ram
+usermod --append --groups network ram
+</code></pre>
+<p>Uncomment the wheel, for root level access for the new user</p>
+<pre><code>visudo
+%wheel ALL=(ALL)ALL
+</code></pre>
+<h2 id="to-enable-wol-make-sure-you-enable-it-on-bios"><strong>To enable WOL, make sure you enable it on BIOS</strong></h2>
+<p>Kindly check, if your Ethernet device supports WOL 
+    ethtool interface | grep Wake-on
+Make sure to find the proper Ethernet MAC address to make this work!
+    vim /usr/lib/systemd/network/99-default.link</p>
+<pre><code>[Match]
+MACAddress=aa:bb:cc:dd:ee:ff
+
+[Link]
+NamePolicy=kernel database onboard slot path
+MACAddressPolicy=persistent
+WakeOnLan=magic
+</code></pre>
+<h2 id="sambamight-be-buggy"><strong>Samba(Might Be Buggy)</strong></h2>
+<p>To create a samba server all you need is to create a samba user and point to the directory to share!    Instead of /opt use your own user directory</p>
+<pre><code>sudo emerge --ask samba
+</code></pre>
+<p>Create a new samba user &amp; password for the same.</p>
+<pre><code>smbpasswd -a ram
+smbpasswd ram
+</code></pre>
+<p>To list all samba users</p>
+<pre><code>sudo pdbedit -L -v
+
+sudo vim /etc/samba/smb.conf
+
+[global]
+logging = systemd
+#workgroup = WORKGROUP
+client min protocol = NT1
+#server min protocol = SMB2_02
+#server max protocol = SMB3
+map to guest = bad password
+server min protocol = NT1
+[share]
+path = /opt
+valid users = ram
+guest ok = yes
+browseable = yes
+public = yes
+writable = yes
+</code></pre>
+<p>To check for errors, use this command to determine the cause of the issue!</p>
+<pre><code>testparm
+</code></pre>
+<p>Start the below services to start Samba</p>
+<pre><code>sudo systemctl enable smbd
+sudo systemctl enable nmb
+sudo systemctl start smbd 
+sudo systemctl start nmb
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
